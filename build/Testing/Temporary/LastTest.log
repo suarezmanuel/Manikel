@@ -1,0 +1,28 @@
+Start testing: Jan 17 13:26 Jerusalem Standard Time
+----------------------------------------------------------
+1/1 Testing: CalcTests
+1/1 Test: CalcTests
+Command: "C:/Projects/Manikel/build/CalcTests.exe"
+Directory: C:/Projects/Manikel/build
+"CalcTests" start time: Jan 17 13:26 Jerusalem Standard Time
+Output:
+----------------------------------------------------------
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SumTest
+[ RUN      ] SumTest.BasicTest
+[       OK ] SumTest.BasicTest (0 ms)
+[----------] 1 test from SumTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"CalcTests" end time: Jan 17 13:26 Jerusalem Standard Time
+"CalcTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jan 17 13:26 Jerusalem Standard Time
