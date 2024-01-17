@@ -1,30 +1,44 @@
 #include <iostream>
+#include <vector>
 #include <string>
 
-bool getFirstParams (std::string a, int& size, int count);
-bool is1URL (std::string a);
-bool is2URL (std::string a);
-bool addToBlackList (std::string a);
-bool checkInBlackList (std::string a);
-bool checkFalsePos (std::string a);
+// change size, count inside func. x y z w ... where x denotes bloom size,
+// y: how many hashes for y hash, w: how many hashes for w hash...
+void getFirstParams (std::string in, int& size, std::vector<int>& hashes);
+// check for either: 1/2 URL, or x y z w ... (getFirstParams)
+bool checkInputFormatURLS (std::string in);
+bool checkInputFormatFirstParams (std::string in);
+bool is1URL (std::string in);
+void addToBlackList (std::string in);
+bool checkInBlackList (std::string in);
+bool checkFalsePos (std::string in);
 
 int main () {
-    std::string a;
+    std::string in;
     // size in bits
     int bloomSize;
-    int funcCount;
+    std::vector<int> hashes;
+    
     while (true) {
-        // ignore bad input format.
 
         // first line, bloom size, hashes
-         std::getline(std::cin, a);
-         getFirstParams (a, bloomSize, funcCount)
+        std::getline(std::cin, in);
 
-        // other lines
-        if (is1URL(a)) { addToBlackList(a); }
-        else {
-            if (is2URL(a)) { if(checkInBlackList(a)) { checkFalsePos(a) } }
+        if (checkInputFormatURLS(in)) {
+
+            if (is1URL(in)) {
+                addToBlackList(in);
+            // must be 2URL
+            } else {
+                if(checkInBlackList(in)) { checkFalsePos(in) }
+            }
+        
+        // 123 2 2 2 2 2 2 2 2 
+        } else if (checkInputFormatFirstParams(in)) {
+            getFirstParams(in, bloomSize, hashes);
         }
 
+        bloomSize = 0;
+        hashes.clear();
     }
 }

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project("MyCalc") # Replace “MyCalc” with your repo name
+project("Manikel") # Replace “MyCalc” with your repo name
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -22,6 +22,7 @@ FetchContent_Declare(
 	    set(TEST_FILES
 		        tests/test_main.cpp # this is the main for tests
 			    tests/calc_test.cpp # this file contain the tests
+				tests/input_test.cpp # this file contain the tests
 			    )
 		    add_executable(CalcTests ${TEST_FILES})
 
