@@ -35,10 +35,11 @@ bool checkIs1URLOr2URL (std::string in) { // TEST WRITTEN
    // split the string to its values
     std::vector<std::string> inputVals = splitString(in, ' ');
     
-    // get first int
-    int n = std::stoi(inputVals[0]);
+    std::string firstIn = inputVals[0];
+    // get first input
+    char c = firstIn[0];
 
-    if ( 1 > n || n > 2 || inputVals.size() > 2) {
+    if (firstIn.size() > 1 || '1' > c || c > '2' || inputVals.size() > 2) {
         return false;
     }
 
@@ -62,7 +63,7 @@ bool checkInputFormatFirstParams (std::string str) { // TEST WRITTEN
     // checks if the digits are valid (not bigger then the max_size)
     for (std::string val: inputVals) {  
         // works for very large nums, checks str as long long.
-        if (std::stoll(val) > MAXBLOOMSIZE){
+        if (std::stoull(val) > MAXBLOOMSIZE){
             return false;
         }
     }
@@ -87,8 +88,8 @@ void addToBloom(const std::hash<std::string> h, const std::string url, std::vect
             prevHash = std::to_string(h((prevHash == "") ? url : prevHash));           
         }
         
-        // string to long long
-        bloom[stoll(prevHash) % bloom.size()] = 1;
+        // string to unsigned long long
+        bloom[stoull(prevHash) % bloom.size()] = 1;
     }
 }
 
@@ -109,8 +110,8 @@ bool checkInBloom(const std::hash<std::string> h, const std::string url, std::ve
             prevHash = std::to_string(h((prevHash == "") ? url : prevHash));           
         }
         
-        // string to long long
-        if (bloom[stoll(prevHash) % bloom.size()] != 1) { return false; };
+        // string to unsigned long long
+        if (bloom[stoull(prevHash) % bloom.size()] != 1) { return false; };
     }
 
     return true;

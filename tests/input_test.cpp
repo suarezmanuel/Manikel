@@ -22,13 +22,8 @@ TEST (InputTest, IsURLTest) {
 }
 
 TEST (InputTest, CheckBlackListTest) {
-    addToBlackList("www.example.com0");
-    EXPECT_EQ(checkInBlackList("www.example.com0"), true); // check if adding worked
+    EXPECT_EQ(addToBlackList("www.example.com0"), true); // check if adding worked
+    EXPECT_EQ(checkIfInBlackList("www.example.com0"), true); // check if adding worked
 
-    EXPECT_EQ(checkInBlackList("www.NotInBlackList.com0"), false);// url that is not in blacklist
+    EXPECT_EQ(checkIfInBlackList("www.NotInBlackList.com0"), false);// url that is not in blacklist
 }
-
-// TEST (InputTest, CheckFalsePos) {
-
-// }
-

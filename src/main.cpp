@@ -3,6 +3,11 @@
 
 int main () {
 
+    // reset blacklist.txt
+    remove("blacklist.txt");
+    std::ofstream file("blacklist.txt", std::ios::app);
+    file.close();
+
     // size in bits
     bool gotFirstParams = false;
     int bloomSize = 0;
@@ -26,7 +31,7 @@ int main () {
         
 
         if (gotFirstParams && checkIs1URLOr2URL(in)) {
-            std::vector<std::string> input = splitString(in);
+            std::vector<std::string> input = splitString(in, ' ');
             if (input[0] == "1") { 
                 // input[1] is our beloved URL
                 addToBloom(hash, input[1], hashTimes, bloom);
@@ -36,13 +41,12 @@ int main () {
             } else {
                 
                 bool check = checkInBloom(hash, input[1], hashTimes, bloom);
-                std::cout << check; 
+                std::cout << (check ? "true" : "false"); 
 
                 if (check) { 
-                    std::cout << " " << checkIfInBlackList(input[1]) << std::endl;
-                } else {
-                    std::cout << std::endl;
+                    std::cout << " " << (checkIfInBlackList(input[1]) ? "true" : "false");
                 }
+                std::cout << std::endl;
             }
         }
     }
