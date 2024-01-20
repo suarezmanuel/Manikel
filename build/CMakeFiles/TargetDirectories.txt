@@ -1,3 +1,4 @@
+C:/Projects/Manikel/build/CMakeFiles/Main.dir
 C:/Projects/Manikel/build/CMakeFiles/InputTests.dir
 C:/Projects/Manikel/build/CMakeFiles/test.dir
 C:/Projects/Manikel/build/CMakeFiles/edit_cache.dir
