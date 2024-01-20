@@ -20,7 +20,7 @@ bool checkIs1URLOr2URL (std::string in);
 
 bool checkInputFormatFirstParams (std::string str);
 
-void addToBlackList (std::string hash);
+bool addToBlackList (std::string hash);
 
 bool checkInBlackList (std::string in);
 
