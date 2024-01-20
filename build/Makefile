@@ -171,17 +171,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named CalcTests
+# Target rules for targets named InputTests
 
 # Build rule for target.
-CalcTests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CalcTests
-.PHONY : CalcTests
+InputTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 InputTests
+.PHONY : InputTests
 
 # fast build rule for target.
-CalcTests/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CalcTests.dir\build.make CMakeFiles/CalcTests.dir/build
-.PHONY : CalcTests/fast
+InputTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InputTests.dir\build.make CMakeFiles/InputTests.dir/build
+.PHONY : InputTests/fast
 
 #=============================================================================
 # Target rules for targets named gmock
@@ -235,36 +235,60 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps\googletest-build\googletest\CMakeFiles\gtest_main.dir\build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
-tests/calc_test.obj: tests/calc_test.cpp.obj
-.PHONY : tests/calc_test.obj
+src/functions.obj: src/functions.cpp.obj
+.PHONY : src/functions.obj
 
 # target to build an object file
-tests/calc_test.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CalcTests.dir\build.make CMakeFiles/CalcTests.dir/tests/calc_test.cpp.obj
-.PHONY : tests/calc_test.cpp.obj
+src/functions.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InputTests.dir\build.make CMakeFiles/InputTests.dir/src/functions.cpp.obj
+.PHONY : src/functions.cpp.obj
 
-tests/calc_test.i: tests/calc_test.cpp.i
-.PHONY : tests/calc_test.i
+src/functions.i: src/functions.cpp.i
+.PHONY : src/functions.i
 
 # target to preprocess a source file
-tests/calc_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CalcTests.dir\build.make CMakeFiles/CalcTests.dir/tests/calc_test.cpp.i
-.PHONY : tests/calc_test.cpp.i
+src/functions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InputTests.dir\build.make CMakeFiles/InputTests.dir/src/functions.cpp.i
+.PHONY : src/functions.cpp.i
 
-tests/calc_test.s: tests/calc_test.cpp.s
-.PHONY : tests/calc_test.s
+src/functions.s: src/functions.cpp.s
+.PHONY : src/functions.s
 
 # target to generate assembly for a file
-tests/calc_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CalcTests.dir\build.make CMakeFiles/CalcTests.dir/tests/calc_test.cpp.s
-.PHONY : tests/calc_test.cpp.s
+src/functions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InputTests.dir\build.make CMakeFiles/InputTests.dir/src/functions.cpp.s
+.PHONY : src/functions.cpp.s
+
+tests/input_test.obj: tests/input_test.cpp.obj
+.PHONY : tests/input_test.obj
+
+# target to build an object file
+tests/input_test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InputTests.dir\build.make CMakeFiles/InputTests.dir/tests/input_test.cpp.obj
+.PHONY : tests/input_test.cpp.obj
+
+tests/input_test.i: tests/input_test.cpp.i
+.PHONY : tests/input_test.i
+
+# target to preprocess a source file
+tests/input_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InputTests.dir\build.make CMakeFiles/InputTests.dir/tests/input_test.cpp.i
+.PHONY : tests/input_test.cpp.i
+
+tests/input_test.s: tests/input_test.cpp.s
+.PHONY : tests/input_test.s
+
+# target to generate assembly for a file
+tests/input_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InputTests.dir\build.make CMakeFiles/InputTests.dir/tests/input_test.cpp.s
+.PHONY : tests/input_test.cpp.s
 
 tests/test_main.obj: tests/test_main.cpp.obj
 .PHONY : tests/test_main.obj
 
 # target to build an object file
 tests/test_main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CalcTests.dir\build.make CMakeFiles/CalcTests.dir/tests/test_main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InputTests.dir\build.make CMakeFiles/InputTests.dir/tests/test_main.cpp.obj
 .PHONY : tests/test_main.cpp.obj
 
 tests/test_main.i: tests/test_main.cpp.i
@@ -272,7 +296,7 @@ tests/test_main.i: tests/test_main.cpp.i
 
 # target to preprocess a source file
 tests/test_main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CalcTests.dir\build.make CMakeFiles/CalcTests.dir/tests/test_main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InputTests.dir\build.make CMakeFiles/InputTests.dir/tests/test_main.cpp.i
 .PHONY : tests/test_main.cpp.i
 
 tests/test_main.s: tests/test_main.cpp.s
@@ -280,7 +304,7 @@ tests/test_main.s: tests/test_main.cpp.s
 
 # target to generate assembly for a file
 tests/test_main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\CalcTests.dir\build.make CMakeFiles/CalcTests.dir/tests/test_main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\InputTests.dir\build.make CMakeFiles/InputTests.dir/tests/test_main.cpp.s
 .PHONY : tests/test_main.cpp.s
 
 # Help Target
@@ -296,14 +320,17 @@ help:
 	@echo ... list_install_components
 	@echo ... rebuild_cache
 	@echo ... test
-	@echo ... CalcTests
+	@echo ... InputTests
 	@echo ... gmock
 	@echo ... gmock_main
 	@echo ... gtest
 	@echo ... gtest_main
-	@echo ... tests/calc_test.obj
-	@echo ... tests/calc_test.i
-	@echo ... tests/calc_test.s
+	@echo ... src/functions.obj
+	@echo ... src/functions.i
+	@echo ... src/functions.s
+	@echo ... tests/input_test.obj
+	@echo ... tests/input_test.i
+	@echo ... tests/input_test.s
 	@echo ... tests/test_main.obj
 	@echo ... tests/test_main.i
 	@echo ... tests/test_main.s

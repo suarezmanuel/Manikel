@@ -1,4 +1,4 @@
-C:/Projects/Manikel/build/CMakeFiles/CalcTests.dir
+C:/Projects/Manikel/build/CMakeFiles/InputTests.dir
 C:/Projects/Manikel/build/CMakeFiles/test.dir
 C:/Projects/Manikel/build/CMakeFiles/edit_cache.dir
 C:/Projects/Manikel/build/CMakeFiles/rebuild_cache.dir

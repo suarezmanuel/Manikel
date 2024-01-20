@@ -28,7 +28,7 @@ TEST (InputTest, CheckBlackListTest) {
     EXPECT_EQ(checkInBlackList("www.NotInBlackList.com0"), false);// url that is not in blacklist
 }
 
-TEST (InputTest, CheckFalsePos) {
+// TEST (InputTest, CheckFalsePos) {
 
-}
+// }
 

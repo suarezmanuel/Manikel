@@ -205,7 +205,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=MyCalc
+CMAKE_PROJECT_NAME:STATIC=Manikel
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=1.12.1
@@ -332,6 +332,15 @@ GTEST_HAS_ABSL:BOOL=OFF
 //Enable installation of googletest. (Projects embedding googletest
 // may want to turn this OFF.)
 INSTALL_GTEST:BOOL=ON
+
+//Value Computed by CMake
+Manikel_BINARY_DIR:STATIC=C:/Projects/Manikel/build
+
+//Value Computed by CMake
+Manikel_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Manikel_SOURCE_DIR:STATIC=C:/Projects/Manikel
 
 //Value Computed by CMake
 MyCalc_BINARY_DIR:STATIC=C:/Projects/Manikel/build
