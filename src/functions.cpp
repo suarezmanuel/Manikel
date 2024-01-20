@@ -91,23 +91,15 @@ bool addToBlackList (std::string url) { // DOESNT NEED TEST
 }
 
 
-bool checkInBlackList (std::string in) {
-    //     std::fstream file;
-    // // we need both ios::out and ios::trunc
-    // file.open("blacklist.txt", std::ios::out | std::ios::trunc);
-    
-    // file.close();
-    return true;
-}
-
-
-bool checkFalsePos (std::string in) {
-
+bool checkIfInBlackList (std::string url) {
+    // opens the blacklist of urls
     std::fstream inputFile("blacklist.txt");
     std::string line;
 
+    // goes through the urls in blacklist
     while (std::getline(inputFile, line)) {
-        if(in == line){
+        // checks if the url is in blacklist
+        if(url == line){
             inputFile.close();
             return true;
         }
