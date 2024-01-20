@@ -1,3 +1,7 @@
+#ifndef shmulik
+
+#define shmulik
+
 #include <iostream>
 #include <vector>
 #include <functional>
@@ -21,3 +25,5 @@ void addToBlackList (std::string hash);
 bool checkInBlackList (std::string in);
 
 bool checkFalsePos (std::string in);
+
+#endif

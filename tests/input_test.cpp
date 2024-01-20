@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../src/main.cpp"
+#include "../src/functions.h"
 
 TEST (InputTest, FirstParamsTest) {
     EXPECT_EQ(checkInputFormatFirstParams("128 1 2"), true);
@@ -22,7 +22,7 @@ TEST (InputTest, IsURLTest) {
 }    
 
 TEST (InputTest, CheckBlackListTest) {
-    // addToBlackList("www.example.com0");
+    addToBlackList("www.example.com0");
     EXPECT_EQ(checkInBlackList("www.example.com0"), true); // check if adding worked
 
     EXPECT_EQ(checkInBlackList("www.NotInBlackList.com0"), false);// url that is not in blacklist
