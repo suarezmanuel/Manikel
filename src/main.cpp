@@ -39,7 +39,7 @@ int main () {
                 std::cout << check; 
 
                 if (check) { 
-                    std::cout << " " << checkInBlackList(input[1]) << std::endl;
+                    std::cout << " " << checkIfInBlackList(input[1]) << std::endl;
                 } else {
                     std::cout << std::endl;
                 }
