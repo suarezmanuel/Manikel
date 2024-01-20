@@ -14,12 +14,12 @@ TEST (InputTest, FirstParamsTest) {
 }
 
 TEST (InputTest, IsURLTest) {
-    EXPECT_EQ(checkIs1URLOr2URL("1 www.example.com0"), true); // valid number and url
-    EXPECT_EQ(checkIs1URLOr2URL("2 www.example.com0"), true); // valid number and url
-    EXPECT_EQ(checkIs1URLOr2URL("3 www.example.com0"), false); // invalid number but valid url
-    EXPECT_EQ(checkIs1URLOr2URL("1 eweq"), false); // valid number but invalid url
-    EXPECT_EQ(checkIs1URLOr2URL("3 eweq"), false); // invalid number and url
-}    
+    EXPECT_EQ(checkIs1URLOr2URL("1 www.example.com0"), true); // valid number
+    EXPECT_EQ(checkIs1URLOr2URL("2 www.example.com0"), true); // valid number
+    EXPECT_EQ(checkIs1URLOr2URL("3 www.example.com0"), false); // invalid number
+    EXPECT_EQ(checkIs1URLOr2URL("1 eweq"), true); // valid number
+    EXPECT_EQ(checkIs1URLOr2URL("3 eweq"), false); // invalid number
+}
 
 TEST (InputTest, CheckBlackListTest) {
     addToBlackList("www.example.com0");

@@ -38,8 +38,6 @@ bool checkIs1URLOr2URL (std::string in) { // TEST WRITTEN
     // get first int
     int n = std::stoi(inputVals[0]);
 
-    std::string s = inputVals[1];
-
     if ( 1 > n || n > 2 || inputVals.size() > 2) {
         return false;
     }
@@ -63,7 +61,8 @@ bool checkInputFormatFirstParams (std::string str) { // TEST WRITTEN
 
     // checks if the digits are valid (not bigger then the max_size)
     for (std::string val: inputVals) {  
-        if (std::stoi(val) > MAXBLOOMSIZE){
+        // works for very large nums, checks str as long long.
+        if (std::stoll(val) > MAXBLOOMSIZE){
             return false;
         }
     }
