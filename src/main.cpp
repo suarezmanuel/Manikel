@@ -7,7 +7,7 @@ int main () {
     bool gotFirstParams = false;
     int bloomSize = 0;
     std::string in;
-    std::hash<char> hash;
+    std::hash<std::string> hash;
     std::vector<bool> bloom; 
     std::vector<int> hashTimes;
     
@@ -19,23 +19,27 @@ int main () {
 
         if (checkInputFormatFirstParams(in) && !gotFirstParams) {
             getFirstParams(in, bloomSize, hashTimes);
+            // init bloom with bloomSize flases
             bloom.insert(bloom.end(), bloomSize, false);
             gotFirstParams = true;
         }
         
 
         if (gotFirstParams && checkIs1URLOr2URL(in)) {
-
-            if (in[0] == '1') {
-                addToBlackList(in);
+            std::vector<std::string> input = splitString(in);
+            if (input[0] == "1") { 
+                // input[1] is our beloved URL
+                addToBloom(hash, input[1], hashTimes, bloom);
+                addToBlackList(input[1]);
 
             // must start with 2
             } else {
-                bool check = checkInBlackList(in);
+                
+                bool check = checkInBloom(hash, input[1], hashTimes, bloom);
                 std::cout << check; 
 
                 if (check) { 
-                    std::cout << " " << checkFalsePos(in) << std::endl;
+                    std::cout << " " << checkInBlackList(input[1]) << std::endl;
                 } else {
                     std::cout << std::endl;
                 }
