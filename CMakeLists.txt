@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project("Manikel") # Replace “MyCalc” with your repo name
+project("Manikel")
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -16,20 +16,19 @@ FetchContent_Declare(
 	enable_testing()
 
 	set(SOURCE_FILES
-		    src/calc.cpp # this is where the code we want to test
-		    )
+		    src/input_test.cpp # this is where the code we want to test
+		)
 
 	    set(TEST_FILES
 		        tests/test_main.cpp # this is the main for tests
-			    tests/calc_test.cpp # this file contain the tests
 				tests/input_test.cpp # this file contain the tests
-			    )
-		    add_executable(CalcTests ${TEST_FILES})
+			)
+		add_executable(CalcTests ${TEST_FILES})
 
-		    # Link Google Test to the test executable
-		    target_link_libraries(CalcTests PRIVATE gtest gtest_main)
+		# Link Google Test to the test executable
+		target_link_libraries(CalcTests PRIVATE gtest gtest_main)
 
-		    # Include the source directory for tests
-		    target_include_directories(CalcTests PRIVATE src)
-		    include(GoogleTest)
-		    add_test(NAME CalcTests COMMAND CalcTests)
+		# Include the source directory for tests
+		target_include_directories(CalcTests PRIVATE src)
+		include(GoogleTest)
+		add_test(NAME CalcTests COMMAND CalcTests)
