@@ -117,27 +117,34 @@ bool checkInBloom(const std::hash<std::string> h, const std::string url, std::ve
 }
 
 
-void addToBlackList (std::string hash) { // DOESNT NEED TEST
-    std::fstream file;
-    // we need both ios::out and ios::trunc
-    file.open("blacklist.txt", std::ios::out | std::ios::trunc);
-    file.close();
+bool addToBlackList (std::string url) { // DOESNT NEED TEST
+    // Open a file for writing
+    std::ofstream outputFile("blacklist.txt", std::ios::app);
+
+    // Check if the file is opened successfully
+    if (!outputFile.is_open()) {
+        // std::cerr << "Error opening the file." << std::endl;
+        return false; // Return an error code
+    }
+
+    // Write data to the file
+    outputFile << url << std::endl;
+
+    // Close the file
+    outputFile.close();
+    return true;
 }
 
 
-bool checkInBlackList (std::string in) {
-    //     std::fstream file;
-    // // we need both ios::out and ios::trunc
-    // file.open("blacklist.txt", std::ios::out | std::ios::trunc);
-    
-    // file.close();
-
+bool checkIfInBlackList (std::string url) {
+    // opens the blacklist of urls
     std::fstream inputFile("blacklist.txt");
     std::string line;
 
+    // goes through the urls in blacklist
     while (std::getline(inputFile, line)) {
-        // every URL is in a separate line
-        if (in == line){
+        // checks if the url is in blacklist
+        if(url == line){
             inputFile.close();
             return true;
         }

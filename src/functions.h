@@ -24,10 +24,12 @@ void addToBloom(const std::hash<std::string> h, const std::string url, std::vect
 
 bool checkInBloom(const std::hash<std::string> h, const std::string url, std::vector<int>& hashTimes, std::vector<bool>& bloom);
 
-void addToBlackList (std::string hash);
+void addToBloom(const std::hash<std::string> h, const std::string url, std::vector<int>& hashTimes, std::vector<bool>& bloom);
 
-bool checkInBlackList (std::string in);
+bool checkInBloom(const std::hash<std::string> h, const std::string url, std::vector<int>& hashTimes, std::vector<bool>& bloom);
 
-bool checkFalsePos (std::string in);
+bool addToBlackList (std::string url);
+
+bool checkIfInBlackList (std::string url);
 
 #endif
