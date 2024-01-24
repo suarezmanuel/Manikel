@@ -2,15 +2,14 @@
 #include "../src/functions.h"
 
 TEST (InputTest, FirstParamsTest) {
-    EXPECT_EQ(checkInputFormatFirstParams("128 1 2"), true); 
-    EXPECT_EQ(checkInputFormatFirstParams("1231212124124 1 1"), false);
-
-    EXPECT_EQ(checkInputFormatFirstParams("1124124 0 1"), false);
-    EXPECT_EQ(checkInputFormatFirstParams("1124124 1 0"), false);
-    EXPECT_EQ(checkInputFormatFirstParams("1124124 0 0"), false);
-
-    EXPECT_EQ(checkInputFormatFirstParams("128 asdsad"), false);
-    EXPECT_EQ(checkInputFormatFirstParams("asdsda"), false);
+    EXPECT_EQ(checkInputFormatFirstParams("128 1 2"), true); // valid input
+    EXPECT_EQ(checkInputFormatFirstParams("123121212124124 1 1"), false); // input out of range
+    EXPECT_EQ(checkInputFormatFirstParams("1124124 0 1"), true); // valid input
+    EXPECT_EQ(checkInputFormatFirstParams("1124124 1 0"), true); // valid input
+    EXPECT_EQ(checkInputFormatFirstParams("1124124 0 0"), true); // valid input
+    EXPECT_EQ(checkInputFormatFirstParams("128 asdsad"), false); // invalid hash
+    EXPECT_EQ(checkInputFormatFirstParams("asdsda"), false); // invalid input
+    EXPECT_EQ(checkInputFormatFirstParams("-1 2 1- -1"), false); // invalid input
 }
 
 TEST (InputTest, IsURLTest) {
