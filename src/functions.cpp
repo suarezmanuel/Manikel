@@ -7,6 +7,7 @@ std::vector<std::string> splitString(const std::string& input, char delimiter=' 
     std::istringstream stream (input);
     std::string value;
     
+    // splitting the input string with the given delimiter  
     while (std::getline(stream, value, delimiter)) {
         values.push_back(value);
     }
@@ -124,7 +125,6 @@ bool addToBlackList (std::string url) { // DOESNT NEED TEST
 
     // Check if the file is opened successfully
     if (!outputFile.is_open()) {
-        // std::cerr << "Error opening the file." << std::endl;
         return false; // Return an error code
     }
 
@@ -153,4 +153,3 @@ bool checkIfInBlackList (std::string url) {
     inputFile.close();
     return false;
 }
-

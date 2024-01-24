@@ -21,7 +21,7 @@ int main () {
         // first line, bloom size, hashes
         std::getline(std::cin, in);
 
-
+        // checks if the input corresponds the first line format
         if (checkInputFormatFirstParams(in) && !gotFirstParams) {
             getFirstParams(in, bloomSize, hashTimes);
             // init bloom with bloomSize flases
@@ -29,7 +29,7 @@ int main () {
             gotFirstParams = true;
         }
         
-
+        // checks if the input corresponds the url format
         if (gotFirstParams && checkIs1URLOr2URL(in)) {
             std::vector<std::string> input = splitString(in, ' ');
             if (input[0] == "1") { 

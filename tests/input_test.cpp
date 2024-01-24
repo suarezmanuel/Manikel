@@ -2,13 +2,13 @@
 #include "../src/functions.h"
 
 TEST (InputTest, FirstParamsTest) {
-    EXPECT_EQ(checkInputFormatFirstParams("128 1 2"), true);
+    EXPECT_EQ(checkInputFormatFirstParams("128 1 2"), true); 
     EXPECT_EQ(checkInputFormatFirstParams("1231212124124 1 1"), false);
-    // EXPECT_EQ(checkInputFormatFirstParams("1231212124124 1 1"), fa);
+
     EXPECT_EQ(checkInputFormatFirstParams("1124124 0 1"), false);
     EXPECT_EQ(checkInputFormatFirstParams("1124124 1 0"), false);
     EXPECT_EQ(checkInputFormatFirstParams("1124124 0 0"), false);
-    // EXPECT_EQ(checkInputFormatFirstParams("128 1 2"), true);
+
     EXPECT_EQ(checkInputFormatFirstParams("128 asdsad"), false);
     EXPECT_EQ(checkInputFormatFirstParams("asdsda"), false);
 }
