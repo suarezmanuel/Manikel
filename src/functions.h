@@ -8,6 +8,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <climits>
 
 #define MAXBLOOMSIZE INT_MAX
 
