@@ -10,8 +10,3 @@ Lastly, we added more tests and improved the logic of the bloom filter. <br>
 
 The github worflows:
 We added the two required workflow. One that will check all the tests and the other that will upload our project to Dockehub. <br>
-
-Web GUI:
-
-Android GUI:
-  
