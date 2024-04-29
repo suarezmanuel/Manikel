@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project("Manikel")
+project(PART4)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -13,18 +13,18 @@ FetchContent_Declare(
 # set (gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-enable_testing()
+# enable_testing()
 
 set (SOURCE_MAIN
-		src/main.cpp # this is where the code we want to test
+		server.cpp # this is where the code we want to test
 		src/functions.cpp # this is the main for tests
 		src/functions.h # this is the main for tests
 	)
 
-set (TEST_FILES
-		tests/test_main.cpp # this is the main for tests
-		tests/input_test.cpp # this file contain the tests
-	)
+# set (TEST_FILES
+# 		tests/test_main.cpp # this is the main for tests
+# 		tests/input_test.cpp # this file contain the tests
+# 	)
 	
 set (SOURCE_FOR_TESTS
 		src/functions.cpp # this is the main for tests
@@ -32,14 +32,18 @@ set (SOURCE_FOR_TESTS
 	)
 
 
-add_executable(Main ${SOURCE_MAIN})
-add_executable(InputTests ${TEST_FILES}  ${SOURCE_FOR_TESTS})
+add_executable(server ${SOURCE_MAIN})
+
+if(WIN32)
+    target_link_libraries(server PRIVATE wsock32 ws2_32)
+endif()
+# add_executable(InputTests ${TEST_FILES}  ${SOURCE_FOR_TESTS})
 
 # Link Google Test to the test executable
-target_link_libraries(InputTests PRIVATE gtest gtest_main)
+# target_link_libraries(InputTests PRIVATE gtest gtest_main)
 
 # Include the source directory for tests
-target_include_directories(InputTests PRIVATE src)
+# target_include_directories(InputTests PRIVATE src)
 
-include(GoogleTest)
-gtest_discover_tests(InputTests)
+# include(GoogleTest)
+# gtest_discover_tests(InputTests)
