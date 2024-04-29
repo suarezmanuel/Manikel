@@ -3,7 +3,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>
-#include "functions.h"
+#include "src/functions.h"
 #include <stdint.h>
 #include <mutex>
 #include <atomic>
