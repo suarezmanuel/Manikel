@@ -16,4 +16,4 @@ RUN cmake -B build -S . && \
     cmake --build build
 
 # Command to run when the container starts.
-CMD ["./build/Main"]
+CMD ["./build/server"]
