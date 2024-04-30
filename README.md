@@ -1,3 +1,5 @@
+Link to our wiki : [WIKI](https://github.com/suarezmanuel/Manikel/wiki)
+
 <pre>
 
 Multithreading bloom filter server, with proper error handling <br>
