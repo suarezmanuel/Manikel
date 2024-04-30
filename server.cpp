@@ -8,8 +8,8 @@
 #include <mutex>
 #include <atomic>
 
-#define PORT 5555
-#define BUFFER_SIZE 4096
+#define PORT 4111
+#define BUFFER_SIZE 1024
 
 bool isBloomInitialized = false;
 
@@ -50,13 +50,13 @@ void* handleClient(void* arg) {
         int recvBytes = recv(client_sock, input, sizeof(input), 0);
         std::string in = std::string(input);
         stripRight(in);
-        std::cout << "\"" << in << "\"" << std::endl;
+        // std::cout << "\"" << in << "\"" << std::endl;
 
         if (recvBytes < 0) {
             std::cout << "Error receiving message" << std::endl;
             break;
         } else if (recvBytes == 0) {
-            std::cout << "Client disconnected" << std::endl;
+            std::cout << "client disconnected" << std::endl;
             break;
         }
 

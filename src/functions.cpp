@@ -67,6 +67,7 @@ bool checkInputFormatFirstParams (std::string str) { // TEST WRITTEN
             return false;
         }
     }
+
     try {
         // split the string to its values
         std::vector<std::string> inputVals = splitString(str, ' ');
