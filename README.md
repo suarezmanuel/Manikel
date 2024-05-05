@@ -20,5 +20,7 @@ to compile with CMakeLists:
   
   > The files will be created in a "build" folder named "Main"
   
-  To run the file just execute ./build/Main
+  To run the file just execute: ./build/Main
+
+  To run the tests run: ctest --test-dir build --output-on-failure
 </pre>
