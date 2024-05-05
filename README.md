@@ -10,3 +10,15 @@ Lastly, we added more tests and improved the logic of the bloom filter. <br>
 
 The github worflows:
 We added the two required workflow. One that will check all the tests and the other that will upload our project to Dockehub. <br>
+
+<pre>
+to compile with CMakeLists: 
+
+  1. cmake -B build -S .  
+
+  2. cmake --build build
+  
+  > The files will be created in a "build" folder named "Main"
+  
+  To run the file just execute ./build/Main
+</pre>
